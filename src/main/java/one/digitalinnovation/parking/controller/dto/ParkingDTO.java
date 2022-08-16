@@ -1,9 +1,11 @@
 package one.digitalinnovation.parking.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.LocalDateTime;
 
+@JsonInclude(JsonInclude.Include.NON_NULL) //Tira as respostas nulas do server
 public class ParkingDTO {
     private String id;
     private String license;
