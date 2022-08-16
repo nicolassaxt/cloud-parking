@@ -13,15 +13,6 @@ public class ParkingService {
 
     private static Map<String, Parking> parkingMap = new HashMap();
 
-    static{
-        var id1 = getUUID();
-        var id = getUUID();
-
-        Parking parking1=new Parking(id1,"RXT-2222","PE","Polo","Branco");
-        Parking parking=new Parking(id,"DMS-1111","PE","UNO","PRETO");
-        parkingMap.put(id1,parking1);
-        parkingMap.put(id,parking);
-    }
 
     public List<Parking> findAll(){
         return parkingMap.values().stream().collect(Collectors.toList());
@@ -57,5 +48,13 @@ public class ParkingService {
         parking.setColor(parkingCreate.getColor()); //Alterando só a cor
         parkingMap.replace(id, parking);
         return  parking;
+    }
+
+    public Parking checkOut(String id) {
+        Parking parking = findById(id);
+        parking.setExitDate(LocalDateTime.now());
+//        parking.setBill(ParkingCheckOut.getBill(parking));
+//        parkingRepository.save(parking);
+        return parking;
     }
 }
