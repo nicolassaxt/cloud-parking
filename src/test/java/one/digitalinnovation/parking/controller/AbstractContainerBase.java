@@ -13,4 +13,5 @@ public abstract class AbstractContainerBase {
         System.setProperty("spring.datasource.username", POSTGRE_SQL_CONTAINER.getUsername());
         System.setProperty("spring.datasource.password", POSTGRE_SQL_CONTAINER.getPassword());
     }
+
 }
